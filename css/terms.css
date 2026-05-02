@@ -1,0 +1,7 @@
+.policy-hero{background:linear-gradient(135deg,rgba(9,8,8,0.92) 0%,rgba(216,4,11,0.3) 100%),url('../Assets/images/15.png') center/cover;min-height:260px;display:flex;align-items:center;}
+    .policy-body{max-width:860px;margin:0 auto;padding:60px 24px;}
+    .policy-body h2{font-family:var(--font-display);font-size:1.25rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--dark);margin:36px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--primary);}
+    .policy-body p,.policy-body li{color:#4b5563;font-size:0.95rem;line-height:1.8;}
+    .policy-body ul{list-style:disc;padding-left:22px;margin:8px 0;}
+    .policy-body a{color:var(--primary);text-decoration:underline;}
+    .effective-badge{display:inline-block;background:var(--secondary);color:var(--dark);font-family:var(--font-display);font-size:0.75rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:24px;}

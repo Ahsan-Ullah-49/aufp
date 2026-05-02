@@ -1,0 +1,35 @@
+*{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Nunito Sans',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#090808 0%,#1a0000 50%,#0d0d0d 100%);overflow:hidden;}
+    .bg-pattern{position:fixed;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(216,4,11,0.08) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(254,166,0,0.05) 0%,transparent 50%);pointer-events:none;}
+    .login-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:48px 40px;width:100%;max-width:420px;position:relative;z-index:10;}
+    .logo-area{text-align:center;margin-bottom:36px;}
+    .logo-icon{width:64px;height:64px;background:linear-gradient(135deg,#D8040B,#a50208);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 32px rgba(216,4,11,0.4);}
+    .logo-icon i{color:#fff;font-size:1.8rem;}
+    .brand-name{font-family:'Oswald',sans-serif;color:#fff;font-size:1.2rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:block;}
+    .brand-sub{font-family:'Oswald',sans-serif;color:#FEA600;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;display:block;margin-top:2px;}
+    .panel-badge{display:inline-block;background:rgba(216,4,11,0.2);border:1px solid rgba(216,4,11,0.4);color:#ff6b6b;font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-top:10px;}
+    h1{color:#fff;font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;text-align:center;margin-bottom:6px;}
+    .subtitle{color:rgba(255,255,255,0.45);font-size:0.83rem;text-align:center;margin-bottom:32px;}
+    .form-group{margin-bottom:18px;}
+    label{display:block;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:8px;}
+    .input-wrap{position:relative;}
+    .input-wrap i{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,0.3);font-size:0.9rem;}
+    input{width:100%;background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.1);color:#fff;padding:13px 16px 13px 44px;border-radius:10px;font-family:'Nunito Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+    input:focus{border-color:#D8040B;background:rgba(255,255,255,0.08);}
+    input::placeholder{color:rgba(255,255,255,0.2);}
+    .toggle-pw{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.35);cursor:pointer;padding:4px;font-size:0.85rem;}
+    .toggle-pw:hover{color:#FEA600;}
+    .btn-login{width:100%;background:linear-gradient(135deg,#D8040B,#a50208);color:#fff;font-family:'Oswald',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:14px;border:none;border-radius:10px;cursor:pointer;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px;box-shadow:0 4px 20px rgba(216,4,11,0.35);z-index:1;}
+    .btn-login:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 12px 28px rgba(216,4,11,0.5);}
+    .btn-login:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+    .error-msg{background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.3);color:#fca5a5;padding:12px 14px;border-radius:8px;font-size:0.82rem;margin-bottom:16px;display:none;text-align:center;}
+    .error-msg.show{display:block;}
+    .info-box{margin-top:24px;background:rgba(254,166,0,0.07);border:1px solid rgba(254,166,0,0.15);border-radius:10px;padding:14px 16px;}
+    .info-box p{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.6;}
+    .info-box strong{color:#FEA600;}
+    .back-link{display:block;text-align:center;margin-top:20px;color:rgba(255,255,255,0.3);font-size:0.82rem;text-decoration:none;transition:color 0.2s;}
+    .back-link:hover{color:#FEA600;}
+    .spinner{display:none;width:18px;height:18px;border:2px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    .btn-login.loading .spinner{display:block;}
+    .btn-login.loading .btn-text{display:none;}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore our full menu of fresh pizzas, crispy burgers, juicy wraps, hot wings, tea and colddrinks. 3 pizza sizes. Order now on WhatsApp."/>
+  <meta property="og:title" content="Full Menu – Ahsan Ullah Food Point | Pizzas, Burgers, Wraps, Wings in Okara"/>
+  <meta property="og:description" content="Explore our full menu of fresh pizzas, crispy burgers, juicy wraps, hot wings, tea and colddrinks. 3 pizza sizes. Order now on WhatsApp."/>
+  <meta property="og:url" content="https://ahsanullahfoodpoint.vercel.app/pages/menu.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://ahsanullahfoodpoint.com/Assets/og-image.jpg"/>
+  <meta property="og:site_name" content="Ahsan Ullah Food Point"/>
+  <meta property="og:locale" content="en_PK"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Full Menu – Ahsan Ullah Food Point | Pizzas, Burgers, Wraps, Wings in Okara"/>
+  <meta name="twitter:description" content="Explore our full menu of fresh pizzas, crispy burgers, juicy wraps, hot wings, tea and colddrinks. 3 pizza sizes. Order now on WhatsApp."/>
+  <meta name="twitter:image" content="https://ahsanullahfoodpoint.com/Assets/og-image.jpg"/>
+  <link rel="canonical" href="https://ahsanullahfoodpoint.vercel.app/pages/menu.html"/>
+  <link rel="icon" type="image/png" href="../Assets/logo/logo.png" />
+  <meta name="theme-color" content="#D8040B"/>
+  <meta name="author" content="Ahsan Ullah Food Point"/>
+  <meta name="geo.region" content="PK-PB"/>
+  <meta name="geo.placename" content="Okara"/>
+  <title>Full Menu – Ahsan Ullah Food Point | Pizzas, Burgers, Wraps, Wings in Okara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{primary:'#D8040B','primary-dark':'#a50208',secondary:'#FEA600',dark:'#090808'},fontFamily:{display:['Oswald','sans-serif'],body:['Nunito Sans','sans-serif']}}}}</script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/menu.css"/>
+</head>
+<body class="font-body">
+
+<!-- HEADER (same component) -->
+<header id="main-header">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between" style="height:68px;">
+    <a href="../index.html" class="flex items-center gap-3 flex-shrink-0">
+      <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"><img src="../Assets/logo/logo.png" alt="Ahsan Ullah" class="w-9 h-9 object-contain rounded-md" /></div>
+      <div class="leading-tight"><span class="font-display text-white text-sm font-bold tracking-widest uppercase block">Ahsan Ullah</span><span class="font-display text-secondary text-xs tracking-wider uppercase">Food Point</span></div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7">
+      <a href="../index.html"   class="nav-link">Home</a>
+      <a href="menu.html"    class="nav-link active">Menu</a>
+      <a href="deals.html"   class="nav-link">Deals</a>
+      <a href="../index.html#about"       class="nav-link">About Us</a>
+      <a href="../index.html#contact-map" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="cart.html" class="relative cart-icon-wrapper"><i class="fas fa-shopping-cart text-white text-lg"></i><span class="cart-badge cart-count" style="display:none">0</span></a>
+      <a href="cart.html" class="btn-gold hidden sm:inline-flex text-sm px-5 py-2"><i class="fas fa-shopping-cart"></i> Cart</a>
+      <button id="hamburger" class="hamburger lg:hidden ml-2"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="../index.html"   class="mobile-nav-link">Home</a>
+    <a href="menu.html"    class="mobile-nav-link">Menu</a>
+    <a href="deals.html"   class="mobile-nav-link">Deals</a>
+    <a href="../index.html#about"       class="mobile-nav-link">About Us</a>
+    <a href="../index.html#contact-map" class="mobile-nav-link">Contact Us</a>
+    <a href="cart.html" class="btn-gold mt-4 justify-center"><i class="fas fa-shopping-cart"></i> Cart (<span class="cart-count">0</span>)</a>
+  </div>
+</header>
+
+<!-- MENU HERO BANNER -->
+<div class="menu-hero" style="margin-top:68px;">
+  <div class="max-w-7xl mx-auto px-6 py-16 w-full">
+    <div class="reveal">
+      <p class="font-display text-secondary text-sm tracking-widest uppercase mb-2">Ahsan Ullah Food Point</p>
+      <h1 class="font-display text-white text-5xl lg:text-6xl font-bold uppercase tracking-wide leading-none mb-3">Our Full<br><span style="color:var(--secondary)">Menu</span></h1>
+      <p class="text-white/70 text-sm max-w-md">Explore our complete selection of pizzas, burgers, wraps, wings and more. Fresh ingredients, maximum flavour.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MENU CONTENT -->
+<div class="max-w-7xl mx-auto px-5 py-10">
+  <!-- Top Filter Bar -->
+  <div class="flex flex-col sm:flex-row gap-4 mb-8 items-start sm:items-center justify-between">
+    <!-- Category Pills (mobile/tablet scrollable) -->
+    <div class="flex gap-2 overflow-x-auto pb-1 scrollbar-hide flex-1" id="categories-container">
+      <button class="cat-tab active" data-cat="all">All Items</button>
+      <button class="cat-tab" data-cat="pizza">🍕 Pizzas</button>
+      <button class="cat-tab" data-cat="burger">🍔 Burgers</button>
+      <button class="cat-tab" data-cat="wrap">🌯 Wraps</button>
+      <button class="cat-tab" data-cat="wings">🍗 Wings</button>
+      <button class="cat-tab" data-cat="tea">☕ Tea</button>
+      <button class="cat-tab" data-cat="cold">🥤 Colddrinks</button>
+    </div>
+    <!-- Search + Deals button -->
+    <div class="flex gap-3 items-center flex-shrink-0">
+      <div class="relative">
+        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+        <input type="text" id="menu-search" placeholder="Search items..." class="search-input pl-10 w-48" />
+      </div>
+      <a href="deals.html" class="btn-primary text-sm px-4 py-2"><i class="fas fa-tag"></i> Deals</a>
+    </div>
+  </div>
+
+  <!-- Grid of Products -->
+  <div id="menu-container" class="product-grid">
+    <!-- Dynamic Products will be injected here -->
+    <div class="text-center w-full py-20 text-gray-400 col-span-full">
+      <i class="fas fa-spinner fa-spin text-3xl mb-4"></i>
+      <p>Loading our delicious menu...</p>
+    </div>
+  </div>
+
+  <!-- No results message -->
+  <div id="no-results" class="hidden text-center py-16">
+    <div class="text-5xl mb-4">🔍</div>
+    <p class="font-display text-xl uppercase text-gray-400 tracking-wide">No items found</p>
+    <p class="text-gray-400 text-sm mt-2">Try a different search term or category.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="footer">
+  <div class="max-w-7xl mx-auto px-6 pt-14 pb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
+      <div><div class="flex items-center gap-3 mb-4"><button id="admin-access-btn" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity" title="Triple-click for admin access" style="border: none; padding: 0;"><img src="../Assets/logo/logo.png" alt="Ahsan Ullah" class="w-9 h-9 object-contain rounded-md" /></button><div class="leading-tight"><span class="font-display text-white text-sm font-bold tracking-widest uppercase block">Ahsan Ullah</span><span class="font-display text-secondary text-xs tracking-wider uppercase">Food Point</span></div></div><p class="text-sm leading-relaxed text-white/60 mb-5">Best fast food in Okara. Freshly made with passion.</p><div class="flex gap-3"><a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon"><i class="fab fa-instagram"></i></a><a href="https://wa.me/923467407813" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a></div></div>
+      <div><p class="footer-heading">Quick Links</p><a href="../index.html" class="footer-link">Home</a><a href="menu.html" class="footer-link">Menu</a><a href="deals.html" class="footer-link">Deals</a><a href="../index.html#about" class="footer-link">About Us</a></div>
+      <div><p class="footer-heading">Support</p><a href="../index.html#contact-map" class="footer-link">Contact Us</a><a href="cart.html" class="footer-link">Cart</a><a href="#" class="footer-link">Terms of Service</a><a href="#" class="footer-link">Privacy Policy</a></div>
+      <div><p class="footer-heading">Contact &amp; Hours</p><div class="space-y-3 text-sm"><div class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-primary mt-1"></i><span class="text-white/60" id="footer-address">Adda 49/3.R, Okara, Punjab, Pakistan</span></div><div class="flex items-center gap-3"><i class="fas fa-phone text-primary"></i><a href="tel:+923467407813" class="text-white/60 hover:text-secondary transition-colors" id="footer-phone">+92 346 7407813</a></div><div class="flex items-center gap-3"><i class="fas fa-clock text-primary"></i><span class="text-white/60" id="footer-hours">Open Daily: 12 PM – 12 AM</span></div></div></div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/40"><p>© 2026 Ahsan Ullah Food Point. All rights reserved.</p><p>Designed with ❤️ for Okara</p></div>
+  </div>
+</footer>
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<a href="https://wa.me/923467407813" id="whatsapp-float" target="_blank" aria-label="Order on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<script>
+// Pizza size state: stores selected price & size label per pizza id
+var pizzaSizeState = {
+  'sp-pizza': { price: 1000, size: 'Medium' },
+  'mb-pizza': { price: 1100, size: 'Medium' },
+  'ct-pizza': { price: 950,  size: 'Medium' }
+};
+
+function selectSize(btn, id, name, img, price) {
+  // Deselect siblings
+  var siblings = btn.parentElement.querySelectorAll('.size-btn');
+  siblings.forEach(function(b){ b.classList.remove('selected'); });
+  btn.classList.add('selected');
+  // Determine size label from button text
+  var sizeLabel = btn.textContent.trim().split('\n')[0].trim();
+  // Update state
+  pizzaSizeState[id] = { price: price, size: sizeLabel };
+  // Update displayed price
+  var priceEl = document.getElementById('price-' + id);
+  if(priceEl) priceEl.textContent = 'Rs. ' + price.toLocaleString();
+}
+
+function addPizzaToCart(id, name, img) {
+  var state = pizzaSizeState[id] || { price: 0, size: '' };
+  var fullName = name + ' (' + state.size + ')';
+  var cartId   = id + '-' + state.size.toLowerCase();
+  addToCart(cartId, fullName, state.price, img);
+}
+
+// Menu filter logic
+var tabs = document.querySelectorAll('.cat-tab');
+var cards = document.querySelectorAll('#products-grid .product-card');
+var searchInput = document.getElementById('menu-search');
+
+function filterMenu(){
+  var activeCat = document.querySelector('.cat-tab.active');
+  var cat  = activeCat ? activeCat.dataset.cat : 'all';
+  var term = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  var visible = 0;
+  cards.forEach(function(card){
+    var catMatch  = cat === 'all' || card.dataset.cat === cat;
+    var nameMatch = !term || (card.dataset.name||'').includes(term);
+    if(catMatch && nameMatch){ card.style.display=''; visible++; }
+    else card.style.display='none';
+  });
+  var noRes = document.getElementById('no-results');
+  if(noRes) noRes.classList.toggle('hidden', visible > 0);
+}
+
+tabs.forEach(function(tab){
+  tab.addEventListener('click', function(){
+    tabs.forEach(function(t){ t.classList.remove('active'); });
+    tab.classList.add('active');
+    filterMenu();
+  });
+});
+if(searchInput) searchInput.addEventListener('input', filterMenu);
+</script>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+<!-- App Core -->
+<script src="../Admin/firebase-config.js"></script>
+<script src="../js/db-schema.js"></script>
+<script src="../js/firebase-db-manager.js"></script>
+<script src="../Admin/website-data.js"></script>
+
+<!-- Cart & UI -->
+<script src="../js/cart.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

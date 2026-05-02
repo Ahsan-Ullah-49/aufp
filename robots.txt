@@ -1,0 +1,9 @@
+# robots.txt – Ahsan Ullah Food Point
+User-agent: *
+Allow: /
+Disallow: /Admin/
+Disallow: /pages/login.html
+Disallow: /pages/cart.html
+
+# Sitemap
+Sitemap: https://ahsanullahfoodpoint.vercel.app/sitemap.xml

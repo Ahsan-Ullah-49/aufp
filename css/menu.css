@@ -1,0 +1,23 @@
+.menu-hero{background:linear-gradient(135deg,rgba(9,8,8,0.85) 0%,rgba(216,4,11,0.2) 100%),url('https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=2070&auto=format&fit=crop') center/cover;min-height:380px;display:flex;align-items:center;}
+    .menu-sidebar{position:sticky;top:90px;max-height:calc(100vh - 110px);overflow-y:auto;scrollbar-width:thin;}
+    .menu-sidebar::-webkit-scrollbar{width:4px;}
+    .menu-sidebar::-webkit-scrollbar-track{background:#f1f1f1;}
+    .menu-sidebar::-webkit-scrollbar-thumb{background:var(--primary);border-radius:4px;}
+    .cat-sidebar-item{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border-radius:8px;cursor:pointer;transition:all 0.2s;font-family:var(--font-display);font-size:0.82rem;letter-spacing:1px;text-transform:uppercase;color:#555;border:none;background:transparent;width:100%;text-align:left;}
+    .cat-sidebar-item:hover,.cat-sidebar-item.active{background:var(--primary);color:#fff;}
+    .cat-sidebar-item .count{background:rgba(0,0,0,0.1);padding:2px 7px;border-radius:100px;font-size:0.7rem;}
+    .cat-sidebar-item.active .count{background:rgba(255,255,255,0.25);}
+    .search-input{width:100%;padding:10px 16px 10px 40px;border:2px solid #e5e7eb;border-radius:8px;font-family:var(--font-body);font-size:0.9rem;outline:none;transition:border-color 0.2s;}
+    .search-input:focus{border-color:var(--primary);}
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    @media(max-width:1024px){.product-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:640px){.product-grid{grid-template-columns:1fr;}}
+    .category-section{display:none;}.category-section.active{display:block;}
+    /* Pizza Size Selector */
+    .size-selector{display:flex;gap:6px;margin:8px 0;}
+    .size-btn{flex:1;padding:6px 4px;border:2px solid #e5e7eb;background:#fff;border-radius:8px;font-family:var(--font-display);font-size:0.7rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.18s;color:#555;}
+    .size-btn:hover{border-color:var(--primary);color:var(--primary);}
+    .size-btn.selected{border-color:var(--primary);background:var(--primary);color:#fff;}
+    .size-btn.selected p, .size-btn.selected div, .size-btn.selected span { color: #fff !important; }
+    .size-btn.selected .text-gray-400 { color: rgba(255,255,255,0.8) !important; }
+    .size-label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#888;margin-top:6px;margin-bottom:2px;}

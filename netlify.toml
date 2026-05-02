@@ -1,0 +1,52 @@
+# ============================================================
+# AHSAN ULLAH FOOD POINT — Netlify Configuration
+# ============================================================
+
+[build]
+  publish = "."
+
+# ── Security & Cache Headers ─────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options         = "DENY"
+    X-XSS-Protection        = "1; mode=block"
+    X-Content-Type-Options  = "nosniff"
+    Referrer-Policy         = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/Assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ── Redirects ────────────────────────────────────────────
+[[redirects]]
+  from   = "/admin"
+  to     = "/pages/login.html"
+  status = 302
+
+[[redirects]]
+  from   = "/Admin"
+  to     = "/pages/login.html"
+  status = 302
+
+# 404 page
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 404

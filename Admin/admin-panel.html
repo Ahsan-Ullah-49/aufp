@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <title>Admin Panel – Ahsan Ullah Food Point</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="../css/admin-panel.css"/>
+  <link rel="icon" type="image/png" href="../Assets/logo/logo.png" />
+</head>
+<body>
+<div id="app">
+
+<!-- ══ SIDEBAR ══ -->
+<aside id="sb">
+  <div class="sb-logo">
+    <div class="sb-logo-icon"><img src="../Assets/logo/logo.png" alt="Logo" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-pizza-slice\' style=\'color:#fff;font-size:1rem\'></i>'"/></div>
+    <div class="sb-logo-txt"><strong>Ahsan Ullah</strong><span>Admin Panel</span></div>
+  </div>
+  <nav class="sb-nav">
+    <div class="sb-sec">Main</div>
+    <button class="nav-btn active" data-page="dashboard"><span class="ni"><i class="fas fa-chart-pie"></i></span><span class="nl">Dashboard</span></button>
+    <button class="nav-btn" data-page="orders"><span class="ni"><i class="fas fa-receipt"></i></span><span class="nl">Orders</span><span class="nbadge" id="orders-badge" style="display:none">0</span></button>
+    <div class="sb-sec">Menu</div>
+    <button class="nav-btn" data-page="products"><span class="ni"><i class="fas fa-burger"></i></span><span class="nl">Products</span></button>
+    <button class="nav-btn" data-page="categories"><span class="ni"><i class="fas fa-th-large"></i></span><span class="nl">Categories</span></button>
+    <button class="nav-btn" data-page="deals"><span class="ni"><i class="fas fa-tag"></i></span><span class="nl">Deals</span></button>
+    <div class="sb-sec">Content</div>
+    <button class="nav-btn" data-page="hero"><span class="ni"><i class="fas fa-images"></i></span><span class="nl">Hero Slides</span></button>
+    <button class="nav-btn" data-page="reviews"><span class="ni"><i class="fas fa-star"></i></span><span class="nl">Reviews</span></button>
+    <div class="sb-sec">Config</div>
+    <button class="nav-btn" data-page="settings"><span class="ni"><i class="fas fa-gear"></i></span><span class="nl">Settings</span></button>
+    <button class="nav-btn" data-page="setup"><span class="ni"><i class="fas fa-fire"></i></span><span class="nl">Firebase Setup</span></button>
+  </nav>
+  <div class="sb-foot">
+    <div class="user-row">
+      <div class="u-av" id="u-av">A</div>
+      <div style="overflow:hidden;"><div class="u-name" id="u-email">admin@aufp.com</div><div class="u-role">Administrator</div></div>
+    </div>
+  </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<div id="main">
+  <header id="topbar">
+    <div class="tb-l">
+      <button class="col-btn" id="col-btn"><i class="fas fa-bars"></i></button>
+      <div class="bc" id="bc"><span>Dashboard</span></div>
+    </div>
+    <div class="tb-r">
+      <div class="odot demo" id="fb-dot" title="Demo Mode"></div>
+      <button class="tb-btn" onclick="window.open('../index.html','_blank')"><i class="fas fa-external-link-alt"></i> Website</button>
+      <button class="tb-btn" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+  </header>
+
+  <div id="content">
+
+    <!-- ══ DASHBOARD ══ -->
+    <div class="page active" id="page-dashboard">
+      <div class="ph">
+        <div><div class="pt"><i class="fas fa-chart-pie"></i>Dashboard</div><div class="ps" id="mode-badge">Loading...</div></div>
+        <button class="btn btn-p" onclick="nav('products')"><i class="fas fa-plus"></i> Add Product</button>
+      </div>
+      <div class="sg">
+        <div class="sc cr"><div class="sl">Products</div><div class="sv" id="s-products">–</div><i class="fas fa-pizza-slice si"></i></div>
+        <div class="sc cg"><div class="sl">Active Deals</div><div class="sv" id="s-deals">–</div><i class="fas fa-tag si"></i></div>
+        <div class="sc cb"><div class="sl">Reviews</div><div class="sv" id="s-reviews">–</div><i class="fas fa-star si"></i></div>
+      </div>
+      <!-- Firebase Setup Banner (shown only in localStorage/demo mode) -->
+      <div id="firebase-banner" style="display:none;background:rgba(254,166,0,0.1);border:1px solid rgba(254,166,0,0.35);border-radius:12px;padding:16px 20px;margin-bottom:18px;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <i class="fas fa-exclamation-triangle" style="color:var(--gold);font-size:1.1rem;flex-shrink:0;"></i>
+          <div>
+            <div style="font-weight:700;color:#fff;font-size:0.88rem;margin-bottom:2px;">Demo Mode — Firebase Not Connected</div>
+            <div style="color:rgba(255,255,255,0.55);font-size:0.78rem;">Changes save to this browser only. To sync across all devices, add your Firebase credentials to <code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;">Admin/firebase-config.js</code>.</div>
+          </div>
+        </div>
+        <button class="btn btn-gold" style="flex-shrink:0;font-size:0.78rem;" onclick="nav('setup')"><i class="fas fa-fire"></i> Setup Firebase</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div class="panel"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-utensils"></i>Featured Products</div><button class="btn btn-g btn-sm" onclick="nav('products')">View All</button></div><div style="overflow-x:auto;"><table class="dt" id="dash-prod-tbl"><thead><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Status</th></tr></thead><tbody id="dash-prod-body"><tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted);">Loading...</td></tr></tbody></table></div></div>
+        <div class="panel"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-receipt"></i>Recent Orders</div><button class="btn btn-g btn-sm" onclick="nav('orders')">View All</button></div><div class="p-bdy" id="dash-orders" style="padding:30px;text-align:center;color:var(--muted);font-size:0.83rem;"><i class="fas fa-receipt" style="font-size:2rem;opacity:0.2;display:block;margin-bottom:10px;"></i>Orders via WhatsApp appear here.</div></div>
+      </div>
+    </div>
+
+    <!-- ══ PRODUCTS ══ -->
+    <div class="page" id="page-products">
+      <div class="ph"><div><div class="pt"><i class="fas fa-burger"></i>Products</div><div class="ps">Manage all menu items.</div></div><button class="btn btn-p" onclick="openProdModal()"><i class="fas fa-plus"></i> Add Product</button></div>
+      <div class="panel"><div class="p-hdr"><div class="sbox"><i class="fas fa-search"></i><input type="text" id="prod-search" placeholder="Search products..." oninput="filterProds()"/></div><select class="fi" style="width:auto;padding:7px 12px;" id="prod-cat-f" onchange="filterProds()"><option value="">All Categories</option><option value="pizza">🍕 Pizzas</option><option value="burger">🍔 Burgers</option><option value="wrap">🌯 Wraps</option><option value="wings">🍗 Wings</option><option value="tea">☕ Tea</option><option value="cold">🥤 Colddrinks</option></select></div><div style="overflow-x:auto;"><table class="dt"><thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price (M)</th><th>Featured</th><th>Available</th><th>Actions</th></tr></thead><tbody id="prod-tbody"></tbody></table></div></div>
+    </div>
+
+    <!-- ══ CATEGORIES ══ -->
+    <div class="page" id="page-categories">
+      <div class="ph"><div><div class="pt"><i class="fas fa-th-large"></i>Categories</div><div class="ps">Show or hide menu categories.</div></div></div>
+      <div class="panel" style="max-width:560px;"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-list"></i>All Categories</div></div><div class="p-bdy" id="cats-body"></div></div>
+    </div>
+
+    <!-- ══ DEALS ══ -->
+    <div class="page" id="page-deals">
+      <div class="ph"><div><div class="pt"><i class="fas fa-tag"></i>Deals</div><div class="ps">Create combo deals and offers.</div></div><button class="btn btn-p" onclick="openDealModal()"><i class="fas fa-plus"></i> New Deal</button></div>
+      <div id="deals-list"></div>
+    </div>
+
+    <!-- ══ HERO SLIDES ══ -->
+    <div class="page" id="page-hero">
+      <div class="ph"><div><div class="pt"><i class="fas fa-images"></i>Hero Slides</div><div class="ps">Manage the homepage slider.</div></div><button class="btn btn-p" onclick="openSlideModal()"><i class="fas fa-plus"></i> Add Slide</button></div>
+      <div id="slides-list"></div>
+    </div>
+
+
+    <!-- ══ REVIEWS ══ -->
+    <div class="page" id="page-reviews">
+      <div class="ph"><div><div class="pt"><i class="fas fa-star"></i>Reviews</div><div class="ps">Manage customer testimonials.</div></div><button class="btn btn-p" onclick="openRevModal()"><i class="fas fa-plus"></i> Add Review</button></div>
+      <div id="revs-list"></div>
+    </div>
+
+    <!-- ══ ORDERS ══ -->
+    <div class="page" id="page-orders">
+      <div class="ph"><div><div class="pt"><i class="fas fa-receipt"></i>Orders</div><div class="ps">WhatsApp checkout orders.</div></div></div>
+      <div id="orders-list"><div class="panel"><div class="p-bdy" style="text-align:center;padding:50px;color:var(--muted);"><i class="fas fa-receipt" style="font-size:2.5rem;opacity:0.15;display:block;margin-bottom:14px;"></i><p style="font-family:var(--fh);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">No Orders Yet</p><p style="font-size:0.8rem;">Orders placed through WhatsApp checkout appear here automatically.</p></div></div></div>
+    </div>
+
+    <!-- ══ SETTINGS ══ -->
+    <div class="page" id="page-settings">
+      <div class="ph"><div><div class="pt"><i class="fas fa-gear"></i>Settings</div><div class="ps">Configure restaurant information.</div></div><button class="btn btn-p" onclick="saveSettings()"><i class="fas fa-save"></i> Save Settings</button></div>
+      <div class="stabs">
+        <button class="stab active" data-stab="general">General</button>
+        <button class="stab" data-stab="contact">Contact</button>
+        <button class="stab" data-stab="social">Social</button>
+        <button class="stab" data-stab="delivery">Delivery</button>
+      </div>
+      <div class="ssec active panel" id="stab-general"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-store"></i>Business Info</div></div><div class="p-bdy"><div class="fg"><div class="fgr full"><label>Business Name</label><input class="fi" id="s-businessName" placeholder="Ahsan Ullah Food Point"/></div><div class="fgr full"><label>Tagline</label><input class="fi" id="s-tagline" placeholder="Pizza Aisa, Ke Dil Khush Ho Jaye!"/></div><div class="fgr full"><label>About Us Text</label><textarea class="fi" id="s-aboutText" rows="3" placeholder="About your restaurant..."></textarea></div><div class="fgr full"><label>Logo URL</label><input class="fi" id="s-logoUrl" placeholder="Assets/logo/logo.png or https://..."/></div></div></div></div>
+      <div class="ssec panel" id="stab-contact" style="margin-top:14px;"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-address-book"></i>Contact & Hours</div></div><div class="p-bdy"><div class="fg"><div class="fgr"><label>Phone</label><input class="fi" id="s-phone" placeholder="+92 346 7407813"/></div><div class="fgr"><label>WhatsApp (digits only)</label><input class="fi" id="s-whatsapp" placeholder="923467407813"/></div><div class="fgr full"><label>Address</label><input class="fi" id="s-address" placeholder="Main Bazar, Okara..."/></div><div class="fgr full"><label>Opening Hours</label><input class="fi" id="s-openingHours" placeholder="12 PM – 12 AM Daily"/></div><div class="fgr full"><label>Google Maps Embed URL</label><input class="fi" id="s-mapEmbed" placeholder="https://www.google.com/maps/embed?pb=..."/></div></div></div></div>
+      <div class="ssec panel" id="stab-social" style="margin-top:14px;"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-share-nodes"></i>Social Media</div></div><div class="p-bdy"><div class="fg"><div class="fgr"><label>Facebook URL</label><input class="fi" id="s-facebookUrl" placeholder="https://facebook.com/yourpage"/></div><div class="fgr"><label>Instagram URL</label><input class="fi" id="s-instagramUrl" placeholder="https://instagram.com/yourpage"/></div></div></div></div>
+      <div class="ssec panel" id="stab-delivery" style="margin-top:14px;"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-motorcycle"></i>Delivery</div></div><div class="p-bdy"><div class="fg"><div class="fgr"><label>Delivery Charge (Rs.)</label><input class="fi" type="number" id="s-deliveryCharge" placeholder="60"/></div><div class="fgr"><label>Minimum Order (Rs.)</label><input class="fi" type="number" id="s-minOrderAmount" placeholder="200"/></div></div></div></div>
+    </div>
+
+    <!-- ══ FIREBASE SETUP ══ -->
+    <div class="page" id="page-setup">
+      <div class="ph"><div><div class="pt"><i class="fas fa-fire"></i>Firebase Setup</div><div class="ps">Connect your website to Firebase.</div></div></div>
+      <div class="panel"><div class="p-hdr"><div class="p-ttl"><i class="fas fa-info-circle"></i>Step-by-Step Guide</div></div><div class="p-bdy"><div style="background:rgba(254,166,0,0.07);border:1px solid rgba(254,166,0,0.2);border-radius:10px;padding:20px;font-size:0.84rem;line-height:1.9;color:rgba(255,255,255,0.75);"><ol style="padding-left:20px;"><li>Go to <a href="https://console.firebase.google.com/" target="_blank" style="color:var(--gold);">console.firebase.google.com</a></li><li>Create Project → name it <strong style="color:#fff;">ahsan-ullah-food-point</strong></li><li>Add Web App → Register → copy <code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;">firebaseConfig</code></li><li>Open <code style="background:rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;">Admin/firebase-config.js</code> → paste your config</li><li>Realtime Database → Create Database → Start in Test Mode</li><li>Authentication → Sign-in Method → Enable Email/Password</li><li>Authentication → Users → Add User (your email + password)</li><li>Come back here → click <strong style="color:var(--gold);">Seed Default Data</strong></li></ol><div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;"><button class="btn btn-gold" onclick="seedAll()"><i class="fas fa-database"></i> Seed Default Data</button><button class="btn btn-g" onclick="testConn()"><i class="fas fa-plug"></i> Test Connection</button></div><div id="conn-status" style="margin-top:12px;font-size:0.8rem;color:var(--muted);"></div></div></div></div>
+    </div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+</div><!-- /app -->
+
+<!-- ══ MODALS ══ -->
+
+<!-- Product Modal -->
+<div class="mo" id="prod-modal"><div class="mb"><div class="mh"><div class="mt" id="prod-modal-ttl">Add Product</div><button class="mc" onclick="closeModal('prod-modal')"><i class="fas fa-times text-xs"></i></button></div><input type="hidden" id="pm-id"/>
+<div class="fg"><div class="fgr full"><label>Product Name *</label><input class="fi" id="pm-name" placeholder="Ahsan Special Pizza"/></div><div class="fgr"><label>Category *</label><select class="fi" id="pm-cat" onchange="togglePricingFields()"><option value="pizza">🍕 Pizza</option><option value="burger">🍔 Burger</option><option value="wrap">🌯 Wrap</option><option value="wings">🍗 Wings</option><option value="tea">☕ Tea</option><option value="cold">🥤 Colddrink</option></select></div><div class="fgr"><label>Sort Order</label><input class="fi" type="number" id="pm-order" placeholder="1"/></div>
+<!-- Single price (for non-pizza items) -->
+<div class="fgr" id="pm-single-row" style="display:none;"><label>Price (Rs.) *</label><input class="fi" type="number" id="pm-price" placeholder="350"/></div>
+<!-- Size-based prices (for pizza only) -->
+<div id="pm-size-rows" style="display:contents;">
+  <div class="fgr"><label>🍕 Small (Rs.)</label><input class="fi" type="number" id="pm-ps" placeholder="700"/></div>
+  <div class="fgr"><label>🍕 Medium (Rs.) *</label><input class="fi" type="number" id="pm-pm" placeholder="1000"/></div>
+  <div class="fgr"><label>🍕 Large (Rs.)</label><input class="fi" type="number" id="pm-pl" placeholder="1300"/></div>
+</div>
+<div class="fgr full"><label>Description</label><textarea class="fi" id="pm-desc" rows="2" placeholder="Describe this item..."></textarea></div><div class="fgr full"><label>Image URL</label><input class="fi" id="pm-img" placeholder="https://..." oninput="prevImg('pm-img','pm-prev')"/></div><div class="fgr full"><div class="img-prev" id="pm-prev"><div class="img-ph"><i class="fas fa-image"></i><span>Image preview</span></div></div></div><div class="fgr"><label>Badge Text</label><input class="fi" id="pm-badge" placeholder="Best Seller"/></div><div class="fgr"><label>Badge Style</label><select class="fi" id="pm-badge-t"><option value="gold">Gold</option><option value="red">Red</option></select></div><div class="fgr"><label>Featured</label><div class="tg-row"><label class="tg"><input type="checkbox" id="pm-feat"/><span class="tg-sl"></span></label><span class="tg-lbl">Show in Best Sellers</span></div></div><div class="fgr"><label>Available</label><div class="tg-row"><label class="tg"><input type="checkbox" id="pm-avail" checked/><span class="tg-sl"></span></label><span class="tg-lbl">Available to order</span></div></div></div>
+<div class="act-row"><button class="btn btn-g" onclick="closeModal('prod-modal')">Cancel</button><button class="btn btn-p" onclick="saveProd()"><i class="fas fa-save"></i> Save Product</button></div></div></div>
+
+<!-- Deal Modal -->
+<div class="mo" id="deal-modal"><div class="mb"><div class="mh"><div class="mt" id="deal-modal-ttl">New Deal</div><button class="mc" onclick="closeModal('deal-modal')"><i class="fas fa-times text-xs"></i></button></div><input type="hidden" id="dm-id"/>
+<div class="fg"><div class="fgr full"><label>Deal Title *</label><input class="fi" id="dm-title" placeholder="Buy 2 Pizzas Get Colddrink Free"/></div><div class="fgr full"><label>Subtitle</label><input class="fi" id="dm-sub" placeholder="Short catchy line"/></div><div class="fgr full"><label>Description</label><textarea class="fi" id="dm-desc" rows="2" placeholder="What's included..."></textarea></div><div class="fgr"><label>Original Price (Rs.)</label><input class="fi" type="number" id="dm-orig" placeholder="2400"/></div><div class="fgr"><label>Deal Price (Rs.) *</label><input class="fi" type="number" id="dm-price" placeholder="1800"/></div><div class="fgr"><label>Badge</label><input class="fi" id="dm-badge" placeholder="🔥 Best Deal"/></div><div class="fgr"><label>Sort Order</label><input class="fi" type="number" id="dm-order" placeholder="1"/></div><div class="fgr full"><label>Image URL</label><input class="fi" id="dm-img" placeholder="https://..." oninput="prevImg('dm-img','dm-prev')"/></div><div class="fgr full"><div class="img-prev" id="dm-prev"><div class="img-ph"><i class="fas fa-image"></i><span>Preview</span></div></div></div><div class="fgr"><label>Active</label><div class="tg-row"><label class="tg"><input type="checkbox" id="dm-active" checked/><span class="tg-sl"></span></label><span class="tg-lbl">Deal is live</span></div></div><div class="fgr"><label>Featured</label><div class="tg-row"><label class="tg"><input type="checkbox" id="dm-feat"/><span class="tg-sl"></span></label><span class="tg-lbl">Show featured</span></div></div></div>
+<div class="act-row"><button class="btn btn-g" onclick="closeModal('deal-modal')">Cancel</button><button class="btn btn-p" onclick="saveDeal()"><i class="fas fa-save"></i> Save Deal</button></div></div></div>
+
+<!-- Slide Modal -->
+<div class="mo" id="slide-modal"><div class="mb"><div class="mh"><div class="mt" id="slide-modal-ttl">Add Hero Slide</div><button class="mc" onclick="closeModal('slide-modal')"><i class="fas fa-times text-xs"></i></button></div><input type="hidden" id="sm-id"/>
+<div class="fg"><div class="fgr full"><label>Background Image URL *</label><input class="fi" id="sm-img" placeholder="https://..." oninput="prevImg('sm-img','sm-prev')"/></div><div class="fgr full"><div class="img-prev" style="height:140px;" id="sm-prev"><div class="img-ph"><i class="fas fa-image"></i><span>Slide preview</span></div></div></div><div class="fgr"><label>Label (small text)</label><input class="fi" id="sm-label" placeholder="Fresh Fast Food"/></div><div class="fgr"><label>Sort Order</label><input class="fi" type="number" id="sm-order" placeholder="1"/></div><div class="fgr full"><label>Headline (big text) *</label><input class="fi" id="sm-head" placeholder="Pizza Aisa, Ke Dil Khush Ho Jaye!"/></div><div class="fgr full"><label>Sub-text</label><input class="fi" id="sm-sub" placeholder="Short description..."/></div><div class="fgr"><label>Button Text</label><input class="fi" id="sm-btxt" placeholder="Order Now"/></div><div class="fgr"><label>Button Link</label><input class="fi" id="sm-blink" placeholder="menu.html"/></div><div class="fgr full"><label>Active</label><div class="tg-row"><label class="tg"><input type="checkbox" id="sm-active" checked/><span class="tg-sl"></span></label><span class="tg-lbl">Show this slide</span></div></div></div>
+<div class="act-row"><button class="btn btn-g" onclick="closeModal('slide-modal')">Cancel</button><button class="btn btn-p" onclick="saveSlide()"><i class="fas fa-save"></i> Save Slide</button></div></div></div>
+
+<!-- Review Modal -->
+<div class="mo" id="rev-modal"><div class="mb"><div class="mh"><div class="mt" id="rev-modal-ttl">Add Review</div><button class="mc" onclick="closeModal('rev-modal')"><i class="fas fa-times text-xs"></i></button></div><input type="hidden" id="rm-id"/>
+<div class="fg"><div class="fgr"><label>Customer Name *</label><input class="fi" id="rm-name" placeholder="Ali Hassan"/></div><div class="fgr"><label>Location</label><input class="fi" id="rm-loc" placeholder="Okara City"/></div><div class="fgr"><label>Rating</label><select class="fi" id="rm-rating"><option value="5">★★★★★ 5</option><option value="4">★★★★☆ 4</option><option value="3">★★★☆☆ 3</option></select></div><div class="fgr"><label>Avatar URL</label><input class="fi" id="rm-av" placeholder="https://i.pravatar.cc/42"/></div><div class="fgr full"><label>Review Text *</label><textarea class="fi" id="rm-text" rows="3" placeholder="Customer's review..."></textarea></div><div class="fgr"><label>Sort Order</label><input class="fi" type="number" id="rm-order" placeholder="1"/></div><div class="fgr"><label>Active</label><div class="tg-row"><label class="tg"><input type="checkbox" id="rm-active" checked/><span class="tg-sl"></span></label><span class="tg-lbl">Show on website</span></div></div></div>
+<div class="act-row"><button class="btn btn-g" onclick="closeModal('rev-modal')">Cancel</button><button class="btn btn-p" onclick="saveRev()"><i class="fas fa-save"></i> Save Review</button></div></div></div>
+
+<!-- Confirm Delete Modal -->
+<div class="mo" id="del-modal"><div class="mb" style="max-width:360px;"><div class="mh"><div class="mt" style="color:#ff6b6b;"><i class="fas fa-exclamation-triangle"></i> Confirm Delete</div><button class="mc" onclick="closeModal('del-modal')"><i class="fas fa-times text-xs"></i></button></div><p style="color:var(--muted);font-size:0.85rem;margin-bottom:18px;" id="del-msg">Are you sure? This cannot be undone.</p><div class="act-row"><button class="btn btn-g" onclick="closeModal('del-modal')">Cancel</button><button class="btn btn-d" id="del-confirm-btn"><i class="fas fa-trash"></i> Delete</button></div></div></div>
+
+<div id="toast"></div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<!-- Config & Schema (must load before firebase-db-manager) -->
+<script src="firebase-config.js"></script>
+<script src="../js/db-schema.js"></script>
+<!-- Core manager (auto-inits on DOMContentLoaded) -->
+<script src="../js/firebase-db-manager.js"></script>
+<!-- Admin UI (uses AUFP.onReady internally) -->
+<script src="admin-manager.js"></script>
+</body>
+</html>

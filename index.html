@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>window.IS_ROOT = true;</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Best fresh fast food in Okara since 2019. Order pizzas, burgers, wraps, wings and more. WhatsApp order + home delivery available. 49/3R Okara, Punjab."/>
+  <meta property="og:title" content="Ahsan Ullah Food Point – Best Fresh Fast Food in Okara | Pizza, Burgers, Wings"/>
+  <meta property="og:description" content="Best fresh fast food in Okara since 2019. Order pizzas, burgers, wraps, wings and more. WhatsApp order + home delivery available. 49/3R Okara, Punjab."/>
+  <meta property="og:url" content="https://ahsanullahfoodpoint.vercel.app/index.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://ahsanullahfoodpoint.vercel.app/Assets/og-image.jpg"/>
+  <meta property="og:site_name" content="Ahsan Ullah Food Point"/>
+  <meta property="og:locale" content="en_PK"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Ahsan Ullah Food Point – Best Fresh Fast Food in Okara | Pizza, Burgers, Wings"/>
+  <meta name="twitter:description" content="Best fresh fast food in Okara since 2019. Order pizzas, burgers, wraps, wings and more. WhatsApp order + home delivery available. 49/3R Okara, Punjab."/>
+  <meta name="twitter:image" content="https://ahsanullahfoodpoint.vercel.app/Assets/og-image.jpg"/>
+  <link rel="canonical" href="https://ahsanullahfoodpoint.vercel.app/index.html"/>
+  <link rel="icon" type="image/png" href="Assets/logo/logo.png" />
+  <meta name="theme-color" content="#D8040B"/>
+  <meta name="author" content="Ahsan Ullah Food Point"/>
+  <meta name="geo.region" content="PK-PB"/>
+  <meta name="geo.placename" content="Okara"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Ahsan Ullah Food Point","image":"https://ahsanullahfoodpoint.vercel.app/Assets/og-image.jpg","url":"https://ahsanullahfoodpoint.vercel.app","telephone":"+923467407813","address":{"@type":"PostalAddress","streetAddress":"49/3R, Main Bazar","addressLocality":"Okara","addressRegion":"Punjab","addressCountry":"PK"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"12:00","closes":"00:00"},"servesCuisine":["Pakistani","Fast Food","Pizza","Burgers"],"priceRange":"Rs. 80 - Rs. 2500","geo":{"@type":"GeoCoordinates","latitude":30.81,"longitude":73.43}}</script>
+  <title>Ahsan Ullah Food Point – Best Fresh Fast Food in Okara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{primary:'#D8040B','primary-dark':'#a50208',secondary:'#FEA600',dark:'#090808'},fontFamily:{display:['Oswald','sans-serif'],body:['Nunito Sans','sans-serif']}}}}</script>
+  <link rel="stylesheet" href="css/style.css" />
+  
+</head>
+<body class="font-body">
+
+<!-- ══ STICKY HEADER ══ -->
+<header id="main-header">
+  <div class="max-w-7xl mx-auto px-5 flex items-center justify-between" style="height:68px;">
+    <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
+      <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+        <img src="Assets/logo/logo.png" alt="Ahsan Ullah" class="w-9 h-9 object-contain rounded-md" />
+      </div>
+      <div class="leading-tight">
+        <span class="font-display text-white text-sm font-bold tracking-widest uppercase block">Ahsan Ullah</span>
+        <span class="font-display text-secondary text-xs tracking-wider uppercase">Food Point</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-7">
+      <a href="index.html"   class="nav-link active">Home</a>
+      <a href="pages/menu.html"    class="nav-link">Menu</a>
+      <a href="pages/deals.html"   class="nav-link">Deals</a>
+      <a href="#about"       class="nav-link">About Us</a>
+      <a href="#contact-map" class="nav-link">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="pages/cart.html" class="relative cart-icon-wrapper" aria-label="Cart">
+        <i class="fas fa-shopping-cart text-white text-lg"></i>
+        <span class="cart-badge cart-count" style="display:none">0</span>
+      </a>
+      <a href="pages/menu.html" class="btn-gold hidden sm:inline-flex text-sm px-5 py-2"><i class="fas fa-bolt"></i> Order Now</a>
+      <button id="hamburger" class="hamburger lg:hidden ml-2" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu">
+    <a href="index.html"   class="mobile-nav-link">Home</a>
+    <a href="pages/menu.html"    class="mobile-nav-link">Menu</a>
+    <a href="pages/deals.html"   class="mobile-nav-link">Deals</a>
+    <a href="#about"       class="mobile-nav-link">About Us</a>
+    <a href="#contact-map" class="mobile-nav-link">Contact Us</a>
+    <a href="pages/cart.html" class="btn-gold mt-4 justify-center"><i class="fas fa-shopping-cart"></i> Cart (<span class="cart-count">0</span>)</a>
+  </div>
+</header>
+
+<!-- ══ HERO SLIDER ══ -->
+<section id="hero">
+  <!-- Dynamic Hero Slides (Images and Text will be injected here) -->
+  <div class="hero-slides-container">
+    <div class="hero-slide active" style="background-image:url('./Assets/images/26.png');">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <p class="font-display text-secondary text-sm font-semibold tracking-widest uppercase mb-3 text-center lg:text-left">Ahsan Ullah Food Point</p>
+          <h1 class="hero-tagline">Pizza Aisa,<br><span>Ke Dil Khush</span><br>Ho Jaye!</h1>
+          <p class="hero-sub">Baked fresh daily with premium ingredients.</p>
+          <div class="flex gap-3 flex-wrap justify-center lg:justify-start">
+            <a href="pages/menu.html" class="btn-gold"><i class="fas fa-utensils"></i> View Menu</a>
+          </div>
+        </div>
+        <!-- Spacer for the persistent video box on the right -->
+        <div class="hidden lg:block" style="width:280px; flex-shrink:0;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persistent Hero Video Box (Stays while slides transition) -->
+  <div class="hero-video-box-wrap">
+    <div class="hero-video-box" id="hero-video-trigger" style="pointer-events:all;">
+      <video id="hero-main-video" autoplay loop playsinline muted>
+        <source src="Assets/others/video.mp4" type="video/mp4">
+      </video>
+      <div class="video-mute-overlay">
+        <i class="fas fa-volume-mute" id="mute-icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <button class="slider-arrow prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+  <button class="slider-arrow next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+  <div class="slider-dots"></div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div id="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">🍕 Ahsan Ullah Food Point Special Pizza</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🔥 49/3R ka No.1 Fast Food – Since 2019</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🍔 Crispy Zinger Burger – Ekdum Lajawab!</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🥤 Buy 2 Large Pizzas &amp; Get 1L Colddrink FREE!</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">📞 Order on WhatsApp: 0346-7407813</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🍗 Hot Wings – Crispy, Spicy &amp; Juicy!</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">⏰ Open Daily: 12 PM – 12 AM</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🚗 Home Delivery Available in 5KM</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🍕 Bhook Mitao, Magar Pyar Se!</span><span class="ticker-dot">★</span>
+    <!-- Seamless loop repeat -->
+    <span class="ticker-item">🍕 Ahsan Ullah Food Point Special Pizza</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🔥 49/3R ka No.1 Fast Food – Since 2019</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🍔 Crispy Zinger Burger – Ekdum Lajawab!</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🥤 Buy 2 Large Pizzas &amp; Get 1L Colddrink FREE!</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">📞 Order on WhatsApp: 0346-7407813</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🍗 Hot Wings – Crispy, Spicy &amp; Juicy!</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">⏰ Open Daily: 12 PM – 12 AM</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🚗 Home Delivery Available in 5KM</span><span class="ticker-dot">★</span>
+    <span class="ticker-item">🍕 Bhook Mitao, Magar Pyar Se!</span><span class="ticker-dot">★</span>
+  </div>
+</div>
+
+<!-- ══ BEST SELLERS ══ -->
+<section class="section-wrapper" id="best-sellers">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-end justify-between mb-8">
+      <div>
+        <div class="section-label reveal"><span>Our Menu</span></div>
+        <h2 class="section-title reveal delay-100">Best <span style="color:var(--primary)">Sellers</span></h2>
+        <p class="text-gray-500 text-sm mt-2 reveal delay-200 max-w-md">Our most-loved dishes, freshly made and full of flavour.</p>
+      </div>
+      <a href="pages/menu.html" class="btn-secondary hidden sm:inline-flex text-sm reveal"><i class="fas fa-arrow-right mr-1"></i> View All</a>
+    </div>
+    <div class="scroll-container-wrap">
+      <button class="scroll-btn left" aria-label="Scroll left"><i class="fas fa-chevron-left text-sm"></i></button>
+      <div class="scroll-container" id="best-sellers-container">
+        <!-- Dynamic Products will be injected here -->
+        <div class="text-center w-full py-10 text-gray-400">Loading delicious food...</div>
+      </div>
+      <button class="scroll-btn right" aria-label="Scroll right"><i class="fas fa-chevron-right text-sm"></i></button>
+    </div>
+    <div class="text-center mt-8 sm:hidden"><a href="pages/menu.html" class="btn-secondary"><i class="fas fa-arrow-right mr-1"></i> View Full Menu</a></div>
+  </div>
+</section>
+
+<!-- ══ HOT OFFERS BANNER ══ -->
+<section id="hot-offers" class="section-wrapper">
+  <div class="offer-fire left">🔥</div>
+  <div class="offer-fire right">🔥</div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="flex flex-col lg:flex-row items-center gap-10">
+      <div class="flex-1 reveal-left">
+        <span class="offer-badge">🔥 Limited Time Offer</span>
+        <h2 class="offers-title">Hot<br><span>Offers!</span></h2>
+        <p class="text-white/70 mt-3 text-sm max-w-sm leading-relaxed">Subscribe to get sizzling deals delivered right to your WhatsApp inbox!</p>
+        <form id="subscribe-form" class="flex gap-3 mt-5 max-w-sm flex-wrap">
+          <input type="tel" placeholder="Enter Phone Number" class="flex-1 bg-white/10 border border-white/25 text-white placeholder-white/40 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-secondary min-w-0" required />
+          <button type="submit" class="btn-gold flex-shrink-0 text-sm px-5 py-3">Subscribe</button>
+        </form>
+        <div id="deal-countdown" class="mt-6">
+          <p class="text-white/50 text-xs uppercase tracking-widest mb-3">Deal Expires In</p>
+          <div class="countdown-block">
+            <div class="countdown-unit"><span class="countdown-number" id="cd-hours">05</span><span class="countdown-label">Hours</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="cd-minutes">30</span><span class="countdown-label">Mins</span></div>
+            <div class="countdown-unit"><span class="countdown-number" id="cd-seconds">00</span><span class="countdown-label">Secs</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-1 reveal-right" id="hot-offers-container">
+        <!-- Static Fallback items (will be replaced by JS) -->
+        <div class="deal-promo-card">
+          <div class="flex gap-5 items-start">
+            <img src="Assets/images/39.png" alt="2 Pizzas Deal" class="w-36 h-36 rounded-xl object-cover flex-shrink-0 shadow-2xl" />
+            <div>
+              <p class="font-display text-secondary text-xs tracking-widest uppercase mb-1">Special Deal</p>
+              <h3 class="font-display text-white text-2xl font-bold uppercase leading-tight mb-2">Buy 2 Special<br>Large Pizzas</h3>
+              <p class="text-white/70 text-sm mb-3">Get 2 Litre Colddrink <span class="text-secondary font-bold">FREE!</span></p>
+              <p class="font-display text-3xl text-white font-bold">Rs. 1,800</p>
+              <p class="text-white/50 text-xs line-through mb-4">Rs. 2,400</p>
+              <button class="btn-gold text-sm px-5 py-2" onclick="addToCart('deal-2pizza','Deal: 2 Large Pizzas + Colddrink',1800,'')"><i class="fas fa-bolt"></i> Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="deal-promo-card mt-4">
+          <div class="flex gap-5 items-center">
+            <img src="Assets/images/6.png" alt="Wings Deal" class="w-28 h-28 rounded-xl object-cover flex-shrink-0 shadow-xl" />
+            <div>
+              <p class="font-display text-secondary text-xs tracking-widest uppercase mb-1">Hot Deal</p>
+              <h3 class="font-display text-white text-xl font-bold uppercase leading-tight mb-1">20 Wings + Fries</h3>
+              <p class="font-display text-2xl text-white font-bold">Rs. 1,200</p>
+              <p class="text-white/50 text-xs line-through mb-3">Rs. 1,600</p>
+              <button class="btn-secondary text-sm px-4 py-2" style="color:#fff;border-color:rgba(255,255,255,0.3)" onclick="addToCart('deal-wings','Deal: 20 Wings + Fries',1200,'')">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT US (REIMAGINED) ══ -->
+<section id="about" class="section-wrapper">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-16 items-center">
+      
+      <!-- Left: Layered Image Composition -->
+      <div class="flex-1 reveal-left">
+        <div class="about-img-frame">
+          <div class="about-badge">
+            <span class="num">5+</span>
+            <span class="lbl">Years Of<br>Experience</span>
+          </div>
+          <img src="./Assets/owner/owner.jpeg" alt="Ahsan Ullah – Founder" class="about-image" />
+          
+          <div class="about-stats">
+            <div class="glass-card">
+              <div class="icon"><i class="fas fa-heart"></i></div>
+              <div><p class="num">50K+</p><p class="lbl">Happy Customers</p></div>
+            </div>
+            <div class="glass-card">
+              <div class="icon"><i class="fas fa-medal"></i></div>
+              <div><p class="num">#1</p><p class="lbl">Choice at 49/3R</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Story Content -->
+      <div class="flex-1 reveal-right">
+        <div class="heritage-label">Heritage Since 2019</div>
+        <h2 class="section-title mb-6" style="font-size: 2.8rem; line-height: 1.1;">Crafting <span class="text-primary">Culinary Excellence</span> with Love</h2>
+        
+        <div class="space-y-5 text-gray-600 leading-relaxed">
+          <p>At Ahsan Ullah Food Point, We believe that quality food is the heart of community. Our founder, <strong class="text-dark">Muhammad Waseem Afzal</strong>, envisioned a place where families could enjoy fast food without compromise.</p>
+          <p>Today, we're a staple in 49/3R — known for our delicious Pizzas, crispy Burgers, juicy Wings, and freshly made Wraps. Every item is prepared using fresh ingredients and cooked with passion.</p>
+          <p class="pt-2">
+            <span class="font-display text-primary text-xl font-bold italic">"Bhook Mitao, Magar Pyar Se."</span>
+          </p>
+        </div>
+
+        <div class="flex gap-4 mt-10">
+          <a href="pages/menu.html" class="btn-primary"><i class="fas fa-utensils"></i> View Menu</a>
+          <a href="#contact-map" class="btn-secondary"><i class="fas fa-map-marker-alt"></i> Locate Us</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ══ -->
+<section id="reviews" class="section-wrapper">
+  <!-- Interactive Background Elements -->
+  <div class="reviews-particles">
+    <div class="particle-blob blob-1"></div>
+    <div class="particle-blob blob-2"></div>
+    <div class="particle-blob blob-3"></div>
+    <div class="particle-sparkle" style="top:20%; left:15%; animation-delay:0s"></div>
+    <div class="particle-sparkle" style="top:65%; left:80%; animation-delay:2s"></div>
+    <div class="particle-sparkle" style="top:40%; left:50%; animation-delay:4s"></div>
+    <div class="particle-sparkle" style="top:85%; left:30%; animation-delay:1s"></div>
+    <div class="particle-sparkle" style="top:10%; left:75%; animation-delay:3s"></div>
+  </div>
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10 reveal">
+      <div class="section-label justify-center"><span>Social Proof</span></div>
+      <h2 class="section-title">What Our <span style="color:var(--primary)">Customers Say</span></h2>
+    </div>
+    <div class="scroll-container-wrap">
+      <button class="scroll-btn left" aria-label="Scroll left"><i class="fas fa-chevron-left text-sm"></i></button>
+      <div class="scroll-container" id="reviews-container">
+        <!-- Dynamic Reviews will be injected here -->
+        <div class="text-center w-full py-10 text-gray-400">
+          <i class="fas fa-spinner fa-spin text-2xl mb-2"></i>
+          <p class="text-xs">Loading customer stories...</p>
+        </div>
+      </div>
+      <button class="scroll-btn right" aria-label="Scroll right"><i class="fas fa-chevron-right text-sm"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MAP + CONTACT ══ -->
+<section id="contact-map" class="section-wrapper">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10 reveal">
+      <div class="section-label justify-center"><span>Find Us</span></div>
+      <h2 class="section-title">Visit Our <span style="color:var(--primary)">Point</span></h2>
+    </div>
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="flex-1 reveal-left">
+        <iframe id="location-map" class="map-embed shadow-lg" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1706.1517452684784!2d73.29378169999999!3d30.815052499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922a3db21ccdfcb%3A0x841ace418dd31282!2z2K3Ys9in2YYg2KfZhNmE2YAg2YHZiNmN2K_ZvtmI2KfZh9mG2L8!5e0!3m2!1sen!2spk!4v1711666000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ahsan Ullah Food Point Location"></iframe>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-5">
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm"><div class="text-primary text-xl mb-2">🕐</div><p class="font-display text-xs font-semibold uppercase tracking-wide mb-1">Opening Hours</p><p class="text-xs text-gray-500" id="contact-hours">Daily: 12 PM – 12 AM</p></div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm"><div class="text-primary text-xl mb-2">📞</div><p class="font-display text-xs font-semibold uppercase tracking-wide mb-1">Phone</p><a href="tel:+923467407813" class="text-xs text-primary hover:underline" id="contact-phone">+92 346 7407813</a></div>
+          <div class="bg-white rounded-xl p-4 text-center shadow-sm"><div class="text-primary text-xl mb-2">📍</div><p class="font-display text-xs font-semibold uppercase tracking-wide mb-1">Address</p><p class="text-xs text-gray-500" id="contact-address">Adda 49/3.R, Okara, Punjab</p></div>
+        </div>
+      </div>
+      <div class="flex-1 reveal-right">
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-1">Get In Touch</h3>
+          <p class="text-gray-500 text-sm mb-6">Have a question or want to give feedback? We love to hear from you.</p>
+          <form id="contact-form">
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div><label class="block text-xs font-semibold uppercase tracking-wide text-gray-600 mb-2">First Name</label><input type="text" name="name" placeholder="Your name" class="contact-form-input" required /></div>
+              <div><label class="block text-xs font-semibold uppercase tracking-wide text-gray-600 mb-2">Email</label><input type="email" name="email" placeholder="Your email" class="contact-form-input" /></div>
+            </div>
+            <div class="mb-4"><label class="block text-xs font-semibold uppercase tracking-wide text-gray-600 mb-2">Message</label><textarea name="message" rows="4" placeholder="Your message..." class="contact-form-input resize-none" required></textarea></div>
+            <button type="submit" class="btn-primary w-full justify-center"><i class="fas fa-paper-plane"></i> Send Message</button>
+          </form>
+          <div class="flex items-center gap-4 mt-5 pt-5 border-t border-gray-100">
+            <span class="text-xs text-gray-400">Also reach us:</span>
+            <a href="https://wa.me/923467407813" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="footer">
+  <div class="max-w-7xl mx-auto px-6 pt-14 pb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-8">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <button id="admin-access-btn" class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity" title="Triple-click for admin access" style="border: none; padding: 0;"><img src="Assets/logo/logo.png" alt="Ahsan Ullah" class="w-9 h-9 object-contain rounded-md" /></button>
+          <div class="leading-tight"><span class="font-display text-white text-sm font-bold tracking-widest uppercase block">Ahsan Ullah</span><span class="font-display text-secondary text-xs tracking-wider uppercase">Food Point</span></div>
+        </div>
+        <p class="text-sm leading-relaxed text-white/60 mb-5">The best fast food in Okara. Freshly made, served with passion. <em class="text-secondary">Bhook Mitao, Magar Pyar Se.</em></p>
+        <div class="flex gap-3">
+          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/923467407813" target="_blank" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-heading">Quick Links</p>
+        <a href="index.html"   class="footer-link">Home</a>
+        <a href="pages/menu.html"    class="footer-link">Menu</a>
+        <a href="pages/deals.html"   class="footer-link">Deals</a>
+        <a href="#about"       class="footer-link">About Us</a>
+      </div>
+      <div>
+        <p class="footer-heading">Support</p>
+        <a href="#contact-map"                  class="footer-link">Contact Us</a>
+        <a href="pages/cart.html"                     class="footer-link">Order / Cart</a>
+        <a href="pages/terms.html"          class="footer-link">Terms of Service</a>
+        <a href="pages/privacy-policy.html" class="footer-link">Privacy Policy</a>
+        <a href="https://wa.me/923467407813" target="_blank" class="footer-link">Help on WhatsApp</a>
+      </div>
+      <div>
+        <p class="footer-heading">Contact &amp; Hours</p>
+        <div class="space-y-3 text-sm">
+          <div class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-primary mt-1"></i><span class="text-white/60" id="footer-address">Adda 49/3.R, Okara, Punjab, Pakistan</span></div>
+          <div class="flex items-center gap-3"><i class="fas fa-phone text-primary"></i><a href="tel:+923467407813" class="text-white/60 hover:text-secondary transition-colors" id="footer-phone">+92 346 7407813</a></div>
+          <div class="flex items-center gap-3"><i class="fas fa-clock text-primary"></i><span class="text-white/60" id="footer-hours">Open Daily: 12 PM – 12 AM</span></div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/40">
+      <p>© 2026 Ahsan Ullah Food Point. All rights reserved.</p>
+      <p>Designed with ❤️ for Okara</p>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="Scroll to top"><i class="fas fa-chevron-up"></i></button>
+<a href="https://wa.me/923467407813" id="whatsapp-float" target="_blank" aria-label="Order on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+
+<!-- Firebase SDKs (Compat version for simplicity) -->
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+<!-- App Core -->
+<script src="Admin/firebase-config.js"></script>
+<script src="js/db-schema.js"></script>
+<script src="js/firebase-db-manager.js"></script>
+<script src="Admin/website-data.js"></script>
+
+<!-- Cart & UI -->
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
