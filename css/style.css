@@ -36,6 +36,7 @@ body {
   color: var(--dark);
   overflow-x: hidden;
   line-height: 1.6;
+  padding-bottom: 80px;
 }
 
 img { display: block; max-width: 100%; }
@@ -349,7 +350,7 @@ a  { text-decoration: none; color: inherit; }
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    padding-top: 100px;
+    padding-top: 120px;
   }
   .hero-video-box-wrap {
     justify-content: center;
@@ -372,13 +373,13 @@ a  { text-decoration: none; color: inherit; }
     height: 300px;
   }
   .hero-tagline {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 }
 
 .hero-tagline {
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-size: clamp(1.8rem, 6vw, 5rem);
   font-weight: 700;
   line-height: 1.1;
   color: #fff;
@@ -489,7 +490,7 @@ a  { text-decoration: none; color: inherit; }
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.5rem, 4vw, 2.8rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -594,7 +595,8 @@ a  { text-decoration: none; color: inherit; }
 .scroll-container::-webkit-scrollbar { display: none; }
 .scroll-container > * {
   scroll-snap-align: start;
-  flex: 0 0 260px;
+  flex: 0 0 280px;
+  max-width: 85vw;
 }
 
 .scroll-btn {
@@ -698,7 +700,7 @@ a  { text-decoration: none; color: inherit; }
 
 .offers-title {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: clamp(1.8rem, 5vw, 4.5rem);
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
@@ -1235,6 +1237,11 @@ a  { text-decoration: none; color: inherit; }
 @media (max-width: 768px) {
   .hero-content { padding: 0 5%; max-width: 100%; }
   .slider-arrow { display: none; }
+}
+
+@media (max-width: 640px) {
+  #whatsapp-float { width: 44px !important; height: 44px !important; bottom: 70px !important; right: 15px !important; font-size: 1.2rem !important; }
+  #scroll-top { width: 36px !important; height: 36px !important; bottom: 15px !important; right: 15px !important; font-size: 0.9rem !important; }
 }
 
 /* ════════ WHATSAPP FLOAT BUTTON ════════ */

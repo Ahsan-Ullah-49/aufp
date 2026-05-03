@@ -115,22 +115,20 @@ var AUFP = (function () {
     } else {
       // Initial value
       cb(_lsGet(path));
-
-      // Listen for changes from same tab (admin → website on same page load won't
-      // fire storage event, so we use custom events too)
-      document.addEventListener('aufp:changed', function(e) {
-        if (e.detail && _pathMatches(path, e.detail.path)) {
-          cb(_lsGet(path));
-        }
-      });
-
-      // Listen for changes from other tabs
-      window.addEventListener('storage', function(e) {
-        if (e.key === LS_PREFIX + path.split('/')[0]) {
-          cb(_lsGet(path));
-        }
-      });
     }
+
+    // Always listen for local changes as a fallback (fixes cross-tab sync when Firebase fails)
+    document.addEventListener('aufp:changed', function(e) {
+      if (e.detail && _pathMatches(path, e.detail.path)) {
+        cb(_lsGet(path));
+      }
+    });
+
+    window.addEventListener('storage', function(e) {
+      if (e.key === LS_PREFIX + path.split('/')[0]) {
+        cb(_lsGet(path));
+      }
+    });
 
     return function() { // unsubscribe
       _subs[path] = (_subs[path]||[]).filter(function(c){ return c !== cb; });
@@ -235,25 +233,29 @@ var AUFP = (function () {
   // SEED ALL DATA (admin setup button)
   // ════════════════════════════════════════════
   function seedAll(onDone) {
-    if (typeof DEFAULT_DATA === 'undefined') { if(onDone) onDone(); return; }
     var paths = ['products','deals','hero_slides','reviews','settings','categories'];
 
-    // Always seed localStorage
-    paths.forEach(function(p) {
-      if (DEFAULT_DATA[p]) {
-        try { localStorage.setItem(LS_PREFIX + p, JSON.stringify(DEFAULT_DATA[p])); } catch(e) {}
-      }
-    });
+    // Ensure localStorage has at least default data
+    if (typeof DEFAULT_DATA !== 'undefined') {
+      paths.forEach(function(p) {
+        if (!_lsGet(p) && DEFAULT_DATA[p]) {
+          try { localStorage.setItem(LS_PREFIX + p, JSON.stringify(DEFAULT_DATA[p])); } catch(e) {}
+        }
+      });
+    }
     _broadcastAll();
 
     if (_fbMode && _db) {
       var done = 0;
       paths.forEach(function(p) {
-        if (!DEFAULT_DATA[p]) { done++; return; }
-        _db.ref(p).set(DEFAULT_DATA[p])
+        var dataToSync = _lsGet(p);
+        if (!dataToSync && typeof DEFAULT_DATA !== 'undefined') dataToSync = DEFAULT_DATA[p];
+        if (!dataToSync) { done++; return; }
+        
+        _db.ref(p).set(dataToSync)
           .then(function() { done++; if (done===paths.length && onDone) onDone(); })
           .catch(function(e) {
-            console.error('[AUFP] Seed err:', p, e.message);
+            console.error('[AUFP] Sync err:', p, e.message);
             done++; if (done===paths.length && onDone) onDone();
           });
       });
