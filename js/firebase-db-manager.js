@@ -51,6 +51,15 @@ var AUFP = (function () {
       _ready  = true;
       _seedLS();
       _dispatch('firebase');
+      
+      // Auto-sync logic: If Firebase is completely empty, auto-sync local data
+      _db.ref('settings').once('value').then(function(s) {
+        if (s.val() === null) {
+          console.info('[AUFP] Firebase is empty. Auto-syncing local data to cloud...');
+          seedAll();
+        }
+      }).catch(function(){});
+      
     } catch (e) {
       console.warn('[AUFP] Firebase failed:', e.message);
       _goLocal('firebase-error');

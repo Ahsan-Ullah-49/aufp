@@ -339,7 +339,17 @@ function saveProd() {
 // ════════════════════════════════════════════════════════
 function loadCategories() {
   AUFP.listen('categories', function(data) {
-    var items = data ? _sort(data) : _sort(DEFAULT_DATA.categories);
+    var merged = {};
+    if (typeof DEFAULT_DATA !== 'undefined' && DEFAULT_DATA.categories) {
+      merged = JSON.parse(JSON.stringify(DEFAULT_DATA.categories));
+    }
+    if (data) {
+      for (var k in data) {
+        if (!merged[k]) merged[k] = {};
+        Object.assign(merged[k], data[k]);
+      }
+    }
+    var items = _sort(merged);
     document.getElementById('cats-body').innerHTML = items.map(function(c) {
       return '<div style="display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--bdr);">'
         + '<div style="display:flex;align-items:center;gap:12px;">'

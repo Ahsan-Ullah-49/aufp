@@ -599,6 +599,10 @@ a  { text-decoration: none; color: inherit; }
   max-width: 85vw;
 }
 
+/* Scrollbar Hide Utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
 .scroll-btn {
   position: absolute;
   top: 50%;
@@ -625,6 +629,7 @@ a  { text-decoration: none; color: inherit; }
 }
 .scroll-btn.left  { left: -22px; }
 .scroll-btn.right { right: -22px; }
+@media (max-width: 1024px) { .scroll-btn { display: none; } }
 
 /* ---------- Category Tabs ---------- */
 .cat-tab {
@@ -644,6 +649,7 @@ a  { text-decoration: none; color: inherit; }
   transition: var(--transition);
   border: 2px solid transparent;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .cat-tab:hover, .cat-tab.active {
   background: var(--primary);
@@ -1242,6 +1248,9 @@ a  { text-decoration: none; color: inherit; }
 @media (max-width: 640px) {
   #whatsapp-float { width: 44px !important; height: 44px !important; bottom: 70px !important; right: 15px !important; font-size: 1.2rem !important; }
   #scroll-top { width: 36px !important; height: 36px !important; bottom: 15px !important; right: 15px !important; font-size: 0.9rem !important; }
+  .section-title { font-size: 1.8rem; }
+  .hero-tagline { font-size: 2.2rem; }
+  .menu-hero { min-height: 250px !important; }
 }
 
 /* ════════ WHATSAPP FLOAT BUTTON ════════ */
