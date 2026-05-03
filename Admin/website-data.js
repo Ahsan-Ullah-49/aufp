@@ -156,7 +156,7 @@
 
       container.innerHTML = items.map(function (d) {
         var savings = (d.originalPrice || 0) - (d.dealPrice || 0);
-        return '<div class="deal-card-horizontal reveal">'
+        return '<div class="deal-card-horizontal">'
           + '<img src="' + _getImgPath(d.image) + '" alt="' + _esc(d.title) + '" class="deal-img" loading="lazy"'
           + ' onerror="this.src=\'' + _getImgPath('') + '\'"/>'
           + '<div class="flex flex-col justify-center p-6 flex-1">'
