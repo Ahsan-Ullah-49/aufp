@@ -35,6 +35,25 @@
   }
 
   // ════════════════════════════════════════════
+  // IMAGE PATH HELPER
+  // ════════════════════════════════════════════
+  /**
+   * Robustly determines the correct image path.
+   * Handles absolute URLs (http, https, //), data URLs, and root-relative paths.
+   */
+  function _getImgPath(img) {
+    if (!img) return (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png');
+    
+    var s = String(img).trim();
+    // If it's an absolute URL, data URL, or starts with // or /, use it as is
+    if (/^(https?:|data:|(\/\/)|(\/))/i.test(s)) {
+      return s;
+    }
+    // Otherwise, prepend ../ if we are in a subdirectory (like /pages/)
+    return (window.IS_ROOT ? '' : '../') + s;
+  }
+
+  // ════════════════════════════════════════════
   // HERO SLIDES
   // ════════════════════════════════════════════
   function _renderHeroSlides() {
@@ -48,7 +67,7 @@
 
       var slidesHtml = slides.map(function (s, i) {
         return '<div class="hero-slide' + (i === 0 ? ' active' : '') + '"'
-          + ' style="background-image:url(\'' + _esc(s.image || '') + '\')">'
+          + ' style="background-image:url(\'' + _getImgPath(s.image) + '\')">'
           + '<div class="hero-overlay"></div>'
           + '<div class="hero-content">'
           + '<div class="hero-text">'
@@ -105,8 +124,8 @@
 
         return '<div class="product-card">'
           + '<div class="product-card-img-wrap">'
-          + '<img src="' + ((p.image || '').startsWith('http') ? '' : (window.IS_ROOT ? '' : '../')) + _esc(p.image || '') + '" alt="' + _esc(p.name) + '" class="product-card-img" loading="lazy"'
-          + ' onerror="this.src=\'' + (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png') + '\'"/>'
+          + '<img src="' + _getImgPath(p.image) + '" alt="' + _esc(p.name) + '" class="product-card-img" loading="lazy"'
+          + ' onerror="this.src=\'' + _getImgPath('') + '\'"/>'
           + badge + '</div>'
           + '<div class="product-card-body">'
           + '<p class="product-card-name">' + _esc(p.name) + '</p>'
@@ -138,8 +157,8 @@
       container.innerHTML = items.map(function (d) {
         var savings = (d.originalPrice || 0) - (d.dealPrice || 0);
         return '<div class="deal-card-horizontal reveal">'
-          + '<img src="' + ((d.image || '').startsWith('http') ? '' : (window.IS_ROOT ? '' : '../')) + _esc(d.image || '') + '" alt="' + _esc(d.title) + '" class="deal-img" loading="lazy"'
-          + ' onerror="this.src=\'' + (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png') + '\'"/>'
+          + '<img src="' + _getImgPath(d.image) + '" alt="' + _esc(d.title) + '" class="deal-img" loading="lazy"'
+          + ' onerror="this.src=\'' + _getImgPath('') + '\'"/>'
           + '<div class="flex flex-col justify-center p-6 flex-1">'
           + '<div class="deal-badge-strip mb-3 self-start">' + _esc(d.badge || 'Special Deal') + '</div>'
           + '<h3 class="font-display text-2xl font-bold uppercase text-dark mb-1">' + _esc(d.title) + '</h3>'
@@ -180,8 +199,8 @@
         var mt = (i > 0) ? ' mt-4' : '';
         return '<div class="deal-promo-card' + mt + '">'
           + '<div class="flex gap-5 items-start">'
-          + '<img src="' + ((d.image || '').startsWith('http') ? '' : (window.IS_ROOT ? '' : '../')) + _esc(d.image || '') + '" alt="' + _esc(d.title) + '" class="w-36 h-36 rounded-xl object-cover flex-shrink-0 shadow-2xl"'
-          + ' onerror="this.src=\'' + (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png') + '\'"/>'
+          + '<img src="' + _getImgPath(d.image) + '" alt="' + _esc(d.title) + '" class="w-36 h-36 rounded-xl object-cover flex-shrink-0 shadow-2xl"'
+          + ' onerror="this.src=\'' + _getImgPath('') + '\'"/>'
           + '<div>'
           + '<p class="font-display text-secondary text-xs tracking-widest uppercase mb-1">' + _esc(d.badge || 'Special Deal') + '</p>'
           + '<h3 class="font-display text-white text-2xl font-bold uppercase leading-tight mb-2">' + _esc(d.title) + '</h3>'
@@ -225,8 +244,8 @@
 
         return '<div class="product-card" data-cat="' + (p.category||'') + '" data-name="' + _esc((p.name||'').toLowerCase()) + '">'
           + '<div class="product-card-img-wrap">'
-          + '<img src="' + ((p.image || '').startsWith('http') ? '' : (window.IS_ROOT ? '' : '../')) + _esc(p.image || '') + '" alt="' + _esc(p.name) + '" class="product-card-img" loading="lazy"'
-          + ' onerror="this.src=\'' + (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png') + '\'"/>'
+          + '<img src="' + _getImgPath(p.image) + '" alt="' + _esc(p.name) + '" class="product-card-img" loading="lazy"'
+          + ' onerror="this.src=\'' + _getImgPath('') + '\'"/>'
           + badge + '</div>'
           + '<div class="product-card-body">'
           + '<p class="product-card-name">' + _esc(p.name) + '</p>'
@@ -308,7 +327,7 @@
           + '<div class="stars mb-2">' + stars(r.rating || 5) + '</div>'
           + '<p class="text-sm text-gray-600 leading-relaxed mb-4">"' + _esc(r.text || '') + '"</p>'
           + '<div class="flex items-center gap-3">'
-          + '<img src="' + ((r.avatar || '').startsWith('http') ? '' : (window.IS_ROOT ? '' : '../')) + _esc(r.avatar || 'https://i.pravatar.cc/42') + '" alt="' + _esc(r.name) + '" class="review-avatar" loading="lazy"'
+          + '<img src="' + _getImgPath(r.avatar || 'https://i.pravatar.cc/42') + '" alt="' + _esc(r.name) + '" class="review-avatar" loading="lazy"'
           + ' onerror="this.src=\'https://i.pravatar.cc/42\'"/>'
           + '<div><p class="font-display text-sm font-semibold uppercase tracking-wide">' + _esc(r.name) + '</p>'
           + '<p class="text-xs text-gray-400 mb-1">' + _esc(r.location || '') + '</p>'

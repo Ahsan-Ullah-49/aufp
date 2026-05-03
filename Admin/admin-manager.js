@@ -133,8 +133,17 @@ function _attachModalCloseOutside() {
 }
 
 // ════════════════════════════════════════════════════════
-// IMAGE PREVIEW
+// IMAGE PATH & PREVIEW
 // ════════════════════════════════════════════════════════
+function _getImgPath(img) {
+  if (!img) return '../Assets/logo/logo.png';
+  var s = String(img).trim();
+  // Absolute URLs
+  if (/^(https?:|data:|(\/\/)|(\/))/i.test(s)) return s;
+  // Local paths (relative to root, but admin is in /Admin/)
+  return '../' + s;
+}
+
 function prevImg(inputId, previewId) {
   var url  = (document.getElementById(inputId)||{}).value||'';
   var prev = document.getElementById(previewId);
@@ -143,7 +152,8 @@ function prevImg(inputId, previewId) {
     prev.innerHTML = '<div class="img-ph"><i class="fas fa-image"></i><span>Image preview</span></div>';
     return;
   }
-  prev.innerHTML = '<img src="' + url + '" onerror="this.parentElement.innerHTML=\'<div class=\\\"img-ph\\\"><i class=\\\"fas fa-exclamation-triangle\\\"></i><span>Invalid URL</span></div>\'" style="width:100%;height:100%;object-fit:cover;border-radius:6px;"/>';
+  var path = _getImgPath(url);
+  prev.innerHTML = '<img src="' + path + '" onerror="this.parentElement.innerHTML=\'<div class=\\\"img-ph\\\"><i class=\\\"fas fa-exclamation-triangle\\\"></i><span>Invalid URL</span></div>\'" style="width:100%;height:100%;object-fit:cover;border-radius:6px;"/>';
 }
 
 // ════════════════════════════════════════════════════════
@@ -188,7 +198,7 @@ function loadDashboard() {
     var items = _sort(data).slice(0,5);
     document.getElementById('dash-prod-body').innerHTML = items.length ? items.map(function(p) {
       return '<tr>'
-        + '<td><img src="'+(p.image||'')+'" class="ti" onerror="this.style.display=\'none\'"/></td>'
+        + '<td><img src="'+_getImgPath(p.image)+'" class="ti" onerror="this.style.display=\'none\'"/></td>'
         + '<td><div class="tn">'+p.name+'</div></td>'
         + '<td><span class="bx bm">'+(_catIcons[p.category]||'')+' '+p.category+'</span></td>'
         + '<td class="tp">Rs. '+(p.priceMedium||0).toLocaleString()+'</td>'
@@ -232,7 +242,7 @@ function _renderProdsTable(data) {
 
   document.getElementById('prod-tbody').innerHTML = items.length ? items.map(function(p) {
     return '<tr>'
-      + '<td><img src="'+(p.image||'')+'" class="ti" onerror="this.style.display=\'none\'"/></td>'
+      + '<td><img src="'+_getImgPath(p.image)+'" class="ti" onerror="this.style.display=\'none\'"/></td>'
       + '<td><div class="tn">'+_esc(p.name)+'</div><div class="ts">'+(p.description||'').substring(0,50)+'…</div></td>'
       + '<td><span class="bx bm">'+(_catIcons[p.category]||'')+' '+(p.category||'')+'</span></td>'
       + '<td class="tp">Rs. '+(p.priceMedium||0).toLocaleString()+'</td>'
@@ -356,7 +366,7 @@ function loadDeals() {
       var sav = (d.originalPrice||0)-(d.dealPrice||0);
       return '<div class="panel" style="margin-bottom:14px;"><div class="p-bdy">'
         + '<div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;">'
-        + '<img src="'+(d.image||'')+'" style="width:100px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0;" onerror="this.style.display=\'none\'"/>'
+        + '<img src="'+_getImgPath(d.image)+'" style="width:100px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0;" onerror="this.style.display=\'none\'"/>'
         + '<div style="flex:1;min-width:180px;">'
         + '<div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;"><span style="font-weight:700;color:#fff;">'+_esc(d.title)+'</span>'
         + '<span class="bx '+(d.active?'bv':'br')+'">'+(d.active?'Live':'Off')+'</span></div>'
@@ -430,7 +440,7 @@ function loadSlides() {
     document.getElementById('slides-list').innerHTML = items.length ? items.map(function(s) {
       return '<div class="panel" style="margin-bottom:14px;"><div class="p-bdy">'
         + '<div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;">'
-        + '<div class="slide-prev"><img src="'+(s.image||'')+'" onerror="this.style.display=\'none\'"/>'
+        + '<div class="slide-prev"><img src="'+_getImgPath(s.image)+'" onerror="this.style.display=\'none\'"/>'
         + '<div class="slide-ov"><div><strong>'+(s.headline||'').substring(0,28)+'</strong><span>'+(s.label||'')+'</span></div></div></div>'
         + '<div style="flex:1;min-width:180px;">'
         + '<div style="display:flex;gap:8px;align-items:center;margin-bottom:4px;">'

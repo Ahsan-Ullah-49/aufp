@@ -246,7 +246,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         cartContainer.innerHTML = items.map(function (item) {
           var lineTotal = item.price * item.qty;
-          var imgSrc    = item.image || (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png');
+          
+          // Robust image path for cart
+          var imgSrc = (window.IS_ROOT ? 'Assets/logo/logo.png' : '../Assets/logo/logo.png');
+          if (item.image) {
+            var s = String(item.image).trim();
+            if (/^(https?:|data:|(\/\/)|(\/))/i.test(s)) {
+              imgSrc = s;
+            } else {
+              imgSrc = (window.IS_ROOT ? '' : '../') + s;
+            }
+          }
+
           return '<div class="cart-item">'
             + '<img src="' + imgSrc + '" alt="' + item.name + '" onerror="this.src=\'https://via.placeholder.com/72\'" />'
             + '<div style="flex:1;min-width:0;">'
