@@ -15,7 +15,7 @@ function getPreloaderHTML(prefix) {
 <div id="preloader">
   <div class="loader-spinner-wrap">
     <div class="loader-spinner"></div>
-    <img src="${prefix}Assets/logo/logo.png" alt="Loading" class="loader-logo" />
+    <img src="${prefix}Assets/logo/logo.png" alt="Loading" class="loader-logo" style="width: 40px; height: 40px; object-fit: contain; border-radius: 8px;" />
   </div>
   <div class="loader-text">Loading...</div>
 </div>
