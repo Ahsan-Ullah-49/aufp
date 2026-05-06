@@ -21,6 +21,26 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ═══════════════ PRELOADER ═══════════════
+  var preloader = document.getElementById('preloader');
+  if (preloader) {
+    var isHidden = false;
+    function hidePreloader() {
+      if (isHidden) return;
+      isHidden = true;
+      preloader.classList.add('loaded');
+      setTimeout(function() {
+        if (preloader.parentNode) preloader.parentNode.removeChild(preloader);
+      }, 600); // Wait for CSS transition to finish
+    }
+    
+    // Hide as soon as window loads completely
+    window.addEventListener('load', hidePreloader);
+    
+    // Fallback: Force hide after 800ms maximum so user isn't stuck waiting for heavy iframes/maps
+    setTimeout(hidePreloader, 800);
+  }
+
   // ═══════════════ STICKY HEADER ═══════════════
   var header = document.getElementById('main-header');
   if (header) {
@@ -28,6 +48,45 @@ document.addEventListener('DOMContentLoaded', function () {
       header.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
   }
+
+  // ═══════════════ APP-LIKE BOTTOM NAVIGATION ═══════════════
+  (function initBottomNav() {
+    var nav = document.createElement('nav');
+    nav.className = 'mobile-bottom-nav';
+    var prefix = window.IS_ROOT ? '' : '../';
+    var page = window.location.pathname.split('/').pop() || 'index.html';
+    
+    var navItems = [
+      { id: 'nav-home', url: prefix + 'index.html', icon: 'fa-home', label: 'Home', match: ['index.html'] },
+      { id: 'nav-menu', url: prefix + 'pages/menu.html', icon: 'fa-utensils', label: 'Menu', match: ['menu.html', 'category-pizza.html', 'category-burgers.html', 'category-wraps.html', 'category-wings.html', 'category-tea.html', 'category-cold.html'] },
+      { id: 'nav-deals', url: prefix + 'pages/deals.html', icon: 'fa-tag', label: 'Deals', match: ['deals.html'] },
+      { id: 'nav-cart', url: prefix + 'pages/cart.html', icon: 'fa-shopping-cart', label: 'Cart', match: ['cart.html'], badge: true }
+    ];
+
+    nav.innerHTML = navItems.map(function(item) {
+      var isActive = item.match.includes(page) ? 'active' : '';
+      var badgeHtml = item.badge ? '<span class="cart-badge cart-count" style="display:none">0</span>' : '';
+      return '<a href="' + item.url + '" class="mobile-bottom-nav-item ' + isActive + '" id="' + item.id + '">'
+        + '<i class="fas ' + item.icon + '"></i>'
+        + '<span>' + item.label + '</span>'
+        + badgeHtml
+        + '</a>';
+    }).join('');
+
+    document.body.appendChild(nav);
+
+    // Update cart count for the new badge immediately if possible
+    if(window.getCart) {
+      var c = window.getCart();
+      var count = c.reduce(function(sum,i){return sum+i.qty},0);
+      var badges = document.querySelectorAll('.cart-count');
+      badges.forEach(function(b){
+        b.textContent = count;
+        b.style.display = count > 0 ? 'flex' : 'none';
+      });
+    }
+  })();
+
 
   // ═══════════════ MOBILE HAMBURGER ═══════════════
   var hamburger  = document.getElementById('hamburger');

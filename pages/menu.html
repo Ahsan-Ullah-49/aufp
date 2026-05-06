@@ -28,8 +28,20 @@
   <script>tailwind.config={theme:{extend:{colors:{primary:'#D8040B','primary-dark':'#a50208',secondary:'#FEA600',dark:'#090808'},fontFamily:{display:['Oswald','sans-serif'],body:['Nunito Sans','sans-serif']}}}}</script>
   <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/menu.css"/>
+  <link rel="manifest" href="../manifest.json" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 </head>
 <body class="font-body">
+<!-- ══ PRELOADER ══ -->
+<div id="preloader">
+  <div class="loader-spinner-wrap">
+    <div class="loader-spinner"></div>
+    <img src="../Assets/logo/logo.png" alt="Loading" class="loader-logo" />
+  </div>
+  <div class="loader-text">Loading...</div>
+</div>
+
 
 <!-- HEADER (same component) -->
 <header id="main-header">

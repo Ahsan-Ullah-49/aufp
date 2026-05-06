@@ -1,0 +1,12 @@
+/* TEAM */
+Author: Ahsan Ullah Food Point Team
+Role: Development and Design
+Contact: 0346-7407813
+Location: Okara, Punjab, Pakistan
+
+/* SITE */
+Last update: 2026/05/06
+Language: English
+Doctype: HTML5
+IDE: VSCode, AI Assistant
+Standards: HTML5, CSS3, ES6

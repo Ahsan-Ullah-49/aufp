@@ -1,0 +1,22 @@
+{
+  "name": "Ahsan Ullah Food Point",
+  "short_name": "AUFP",
+  "description": "Best fresh fast food in Okara. Order pizzas, burgers, wraps, wings and more.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#D8040B",
+  "theme_color": "#D8040B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Assets/logo/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Assets/logo/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
